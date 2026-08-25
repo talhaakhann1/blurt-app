@@ -10,7 +10,7 @@ import { signUpSchema } from '@/Schemas/signUpSchema'
 import axios, { AxiosError } from "axios"
 import {ApiResponse} from '@/types/ApiResponse'
 import {
-  Field,
+  Field, 
   FieldError,
   FieldGroup,
   FieldLabel,
@@ -66,7 +66,6 @@ function Page() {
       toast.message(response.data.message)
       router.replace(`/sign-in`)
     } catch (error) {
-      console.log("Error in signup user");
       const AxiosError = error as AxiosError<ApiResponse>
       let errorMessage = AxiosError.response?.data.message
       toast("Signup Failed",

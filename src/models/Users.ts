@@ -11,7 +11,7 @@ export interface User extends Document {
   messages: Message[];
 }
 
-const MessageSchema: Schema<Message> = new mongoose.Schema({
+const MessageSchema = new Schema<Message>({
   content: {
     type: String,
     required: true,
