@@ -69,6 +69,8 @@ export const POST = async (request: Request) => {
       verificationCode.toString(),
     );
 
+    console.log("Email Response", emailResponse);
+
     if (!emailResponse.success) {
       return Response.json(
         {
