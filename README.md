@@ -1,4 +1,4 @@
-📬 MystMail
+📬 Blurk
 
 Mail Without a Face — send anonymous mystery messages to anyone via their personal link.
 
