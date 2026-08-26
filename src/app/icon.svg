@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <clipPath id="bubble-clip">
+      <path d="M 3 5 C 3 2.8 4.8 1 7 1 L 25 1 C 27.2 1 29 2.8 29 5 L 29 20 C 29 22.2 27.2 24 25 24 L 11 24 L 4 30 L 4 23 C 3.4 22.2 3 21.2 3 20 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer Speech Bubble Silhouette -->
+  <path d="M 3 5 C 3 2.8 4.8 1 7 1 L 25 1 C 27.2 1 29 2.8 29 5 L 29 20 C 29 22.2 27.2 24 25 24 L 11 24 L 4 30 L 4 23 C 3.4 22.2 3 21.2 3 20 Z" fill="#121212"/>
+
+  <!-- Geometric Monogram "B" -->
+  <!-- White Spine -->
+  <rect x="7.5" y="5.5" width="3.5" height="14" fill="#FFFFFF" rx="0.5"/>
+
+  <!-- Upper Loop (Bauhaus Red) -->
+  <path d="M 11 5.5 L 17 5.5 C 19.8 5.5 21.8 7.2 21.8 9.5 C 21.8 11.8 19.8 13.5 17 13.5 L 11 13.5 Z" fill="#D02020"/>
+  <path d="M 11 7.2 L 16.5 7.2 C 17.8 7.2 18.8 8.1 18.8 9.5 C 18.8 10.9 17.8 11.8 16.5 11.8 L 11 11.8 Z" fill="#121212"/>
+
+  <!-- Lower Loop (Bauhaus Yellow) -->
+  <path d="M 11 12.5 L 18 12.5 C 21.2 12.5 23.5 14.5 23.5 17 C 23.5 19.5 21.2 21.5 18 21.5 L 11 21.5 Z" fill="#F0C020"/>
+  <path d="M 11 14.2 L 17.2 14.2 C 18.8 14.2 20 15.3 20 17 C 20 18.7 18.8 19.8 17.2 19.8 L 11 19.8 Z" fill="#121212"/>
+
+  <!-- Cobalt Blue Accent Tile on corner -->
+  <rect x="23.5" y="3.5" width="3" height="3" fill="#1040C0" rx="0.4"/>
+</svg>

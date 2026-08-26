@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import AuthProvider from "@/context/page";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
+  variable: '--font-outfit',
+});
 
 export const metadata: Metadata = {
-  title: 'Mystery Messages',
+  title: 'Blurt',
   description: 'Real feedback from real people.',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
+
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -22,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={outfit.variable}>
+      <body className={`${outfit.className} bg-[#F0F0F0] text-[#121212] antialiased selection:bg-[#F0C020] selection:text-[#121212]`}>
         <AuthProvider>
           {children}
           <Toaster />

@@ -10,7 +10,7 @@ import { Field, FieldError, FieldLabel, FieldGroup } from "@/components/ui/field
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, LogIn } from "lucide-react";
 import { signInSchema } from "@/Schemas/signInSchema";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
@@ -59,83 +59,101 @@ export default function Page() {
             setIsSubmitting(false)
         }
     }
-    return (<div className='flex justify-center items-center min-h-screen bg-gray-100'>
-        <div className='w-full max-w-md p-8 spacey-8 bg-white rounded-lg shadow-md'>
-            <div className='text-center text-black'>
-                <h1 className='text-4xl font-extrabold tracking-tight lg-:text-5xl mb-6'>
-                    Join Mystery Message
-                </h1>
-                <p className='mb-4'>
-                    Sign In to start your anonymous adventure
-                </p>
-            </div>
-            <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
-                <FieldGroup>
-                    <Controller
-                        name="identifier"
-                        control={form.control}
-                        render={({ field, fieldState }) => (
-                            <Field data-invalid={fieldState.invalid}>
-                                <FieldLabel htmlFor="form-rhf-demo-title">
-                                    Username/Email
-                                </FieldLabel>
-                                <Input
-                                    {...field}
-                                    id="form-rhf-demo-title"
-                                    aria-invalid={fieldState.invalid}
-                                    placeholder="Enter username or email"
-                                    autoComplete="off"
+    return (
+    <div className="min-h-screen flex items-center justify-center bg-[#F0F0F0] p-4 sm:p-6">
+            <div className="w-full max-w-md border-4 border-black bg-white p-6 sm:p-10 shadow-[8px_8px_0px_0px_#121212] relative overflow-hidden">
+                <div className="absolute top-0 left-0 h-3 w-full bg-[#1040C0]" />
 
-                                />
-                                {fieldState.invalid && (
-                                    <FieldError errors={[fieldState.error]} />
-                                )}
-                            </Field>
-                        )}
-                    />
-                    <Controller
-                        name="password"
-                        control={form.control}
-                        render={({ field, fieldState }) => (
-                            <Field data-invalid={fieldState.invalid}>
-                                <FieldLabel htmlFor="form-rhf-demo-title">
-                                    Password
-                                </FieldLabel>
-                                <Input
-                                    {...field}
-                                    id="form-rhf-demo-title"
-                                    aria-invalid={fieldState.invalid}
-                                    placeholder="password"
-                                    autoComplete="off"
+                {/* Bauhaus Header Badge */}
+                <div className="text-center mb-8 pt-2">
+                    <div className="inline-flex items-center gap-1.5 border-2 border-black bg-[#F0C020] px-3 py-1 font-bold uppercase tracking-widest text-xs shadow-[2px_2px_0px_0px_#121212] mb-4">
+                        <span className="size-2 rounded-full bg-[#D02020] inline-block border border-black" />
+                        <span>Authentication Portal</span>
+                    </div>
+                    <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#121212]">
+                        Sign In
+                    </h1>
+                    <p className="text-sm font-medium text-[#404040] mt-2">
+                        Enter your credentials to access your Blurt dashboard.
+                    </p>
+                </div>
 
-                                />
-                                {fieldState.invalid && (
-                                    <FieldError errors={[fieldState.error]} />
-                                )}
-                            </Field>
-                        )}
-                    />
-                </FieldGroup>
-                <Button type="submit" id="form-rhf-demo" disabled={isSubmitting}>
-                    {
-                        isSubmitting ? (
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FieldGroup className="gap-5">
+                        <Controller
+                            name="identifier"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field data-invalid={fieldState.invalid}>
+                                    <FieldLabel htmlFor="signin-identifier">
+                                        Username or Email
+                                    </FieldLabel>
+                                    <Input
+                                        {...field}
+                                        id="signin-identifier"
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="user@example.com"
+                                        autoComplete="username"
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                        <Controller
+                            name="password"
+                            control={form.control}
+                            render={({ field, fieldState }) => (
+                                <Field data-invalid={fieldState.invalid}>
+                                    <FieldLabel htmlFor="signin-password">
+                                        Password
+                                    </FieldLabel>
+                                    <Input
+                                        {...field}
+                                        type="password"
+                                        id="signin-password"
+                                        aria-invalid={fieldState.invalid}
+                                        placeholder="••••••••"
+                                        autoComplete="current-password"
+                                    />
+                                    {fieldState.invalid && (
+                                        <FieldError errors={[fieldState.error]} />
+                                    )}
+                                </Field>
+                            )}
+                        />
+                    </FieldGroup>
+
+                    <Button 
+                        type="submit" 
+                        variant="secondary"
+                        size="lg"
+                        className="w-full font-black"
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? (
                             <>
-                                <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait
+                                <Loader2 className="size-4 animate-spin" /> Verifying...
                             </>
-                        ) : ('Sign-In')
-                    }
-                </Button>
-            </form>
-            <div className='text-center mt-4'>
-                <p>
-                    New Member ?{' '}
-                    <Link href='/sign-up' className="text-blue-600 hover:text-blue-800">
-                        Sign up
-                    </Link>
-                </p>
+                        ) : (
+                            <>
+                                <LogIn className="size-4" /> Sign In
+                            </>
+                        )}
+                    </Button>
+                </form>
+
+                <div className="border-t-2 border-black mt-8 pt-6 text-center">
+                    <p className="text-sm font-bold uppercase tracking-wider text-[#121212]">
+                        New to Blurt?{" "}
+                        <Link href="/sign-up" className="text-[#D02020] hover:underline underline-offset-4 ml-1 inline-flex items-center gap-0.5">
+                            Sign Up <ArrowRight className="size-3.5" />
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

@@ -7,23 +7,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
   html {
     @apply font-sans;
   }
 }
 
-/* @custom-variant dark (&:is(.dark *)); */
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Only map font if your Next.js project actually injects these CSS vars */
-  /* via next/font. If not, remove these two lines entirely. */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+
+  --color-bauhaus-red: #D02020;
+  --color-bauhaus-blue: #1040C0;
+  --color-bauhaus-yellow: #F0C020;
+  --color-bauhaus-black: #121212;
+  --color-bauhaus-muted: #E0E0E0;
+  --color-bauhaus-white: #FFFFFF;
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -33,11 +35,6 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -54,80 +51,379 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #F0F0F0;
+  --foreground: #121212;
+  --card: #FFFFFF;
+  --card-foreground: #121212;
+  --popover: #FFFFFF;
+  --popover-foreground: #121212;
+  --primary: #D02020;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1040C0;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E0E0E0;
+  --muted-foreground: #404040;
+  --accent: #F0C020;
+  --accent-foreground: #121212;
+  --destructive: #D02020;
+  --destructive-foreground: #FFFFFF;
+  --border: #121212;
+  --input: #121212;
+  --ring: #121212;
+  --radius: 0px;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #121212;
+  --foreground: #F0F0F0;
+  --card: #1C1C1C;
+  --card-foreground: #F0F0F0;
+  --popover: #1C1C1C;
+  --popover-foreground: #F0F0F0;
+  --primary: #D02020;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1040C0;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2A2A2A;
+  --muted-foreground: #A0A0A0;
+  --accent: #F0C020;
+  --accent-foreground: #121212;
+  --destructive: #D02020;
+  --destructive-foreground: #FFFFFF;
+  --border: #F0F0F0;
+  --input: #F0F0F0;
+  --ring: #F0F0F0;
+  --radius: 0px;
+}
+
+/* ==========================================================================
+   Blurt Bauhaus Neo-Brutalist Sonner Toast Styles
+   ========================================================================== */
+
+[data-sonner-toaster] {
+  --normal-bg: #FFFFFF;
+  --normal-border: #121212;
+  --normal-text: #121212;
+  --success-bg: #FFFFFF;
+  --success-border: #121212;
+  --success-text: #121212;
+  --error-bg: #FFFFFF;
+  --error-border: #121212;
+  --error-text: #121212;
+  --warning-bg: #FFFFFF;
+  --warning-border: #121212;
+  --warning-text: #121212;
+  --info-bg: #FFFFFF;
+  --info-border: #121212;
+  --info-text: #121212;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+}
+
+.dark [data-sonner-toaster] {
+  --normal-bg: #1C1C1C;
+  --normal-border: #F0F0F0;
+  --normal-text: #F0F0F0;
+  --success-bg: #1C1C1C;
+  --success-border: #F0F0F0;
+  --success-text: #F0F0F0;
+  --error-bg: #1C1C1C;
+  --error-border: #F0F0F0;
+  --error-text: #F0F0F0;
+  --warning-bg: #1C1C1C;
+  --warning-border: #F0F0F0;
+  --warning-text: #F0F0F0;
+  --info-bg: #1C1C1C;
+  --info-border: #F0F0F0;
+  --info-text: #F0F0F0;
+}
+
+/* Toast Container */
+[data-sonner-toaster] [data-sonner-toast],
+.blurt-toast {
+  display: flex !important;
+  flex-direction: row !important;
+  border-radius: 0px !important;
+  border: 3px solid #121212 !important;
+  background: #FFFFFF !important;
+  color: #121212 !important;
+  box-shadow: 4px 4px 0px 0px #121212 !important;
+  padding: 14px 16px !important;
+  gap: 14px !important;
+  align-items: flex-start !important;
+  max-width: calc(100vw - 32px) !important;
+  width: 380px !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@media (min-width: 640px) {
+  [data-sonner-toaster] [data-sonner-toast],
+  .blurt-toast {
+    box-shadow: 6px 6px 0px 0px #121212 !important;
+  }
+}
+
+.dark [data-sonner-toaster] [data-sonner-toast],
+.dark .blurt-toast {
+  background: #1C1C1C !important;
+  border-color: #F0F0F0 !important;
+  color: #F0F0F0 !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+@media (min-width: 640px) {
+  .dark [data-sonner-toaster] [data-sonner-toast],
+  .dark .blurt-toast {
+    box-shadow: 6px 6px 0px 0px #000000 !important;
+  }
+}
+
+/* State-Specific Left Accent Borders */
+[data-sonner-toast][data-type="success"],
+.blurt-toast[data-type="success"] {
+  border-left: 8px solid #1040C0 !important;
+}
+
+[data-sonner-toast][data-type="error"],
+.blurt-toast[data-type="error"] {
+  border-left: 8px solid #D02020 !important;
+}
+
+[data-sonner-toast][data-type="warning"],
+.blurt-toast[data-type="warning"] {
+  border-left: 8px solid #F0C020 !important;
+}
+
+[data-sonner-toast][data-type="info"],
+.blurt-toast[data-type="info"] {
+  border-left: 8px solid #1040C0 !important;
+}
+
+[data-sonner-toast][data-type="loading"],
+.blurt-toast[data-type="loading"] {
+  border-left: 8px solid #121212 !important;
+}
+
+.dark [data-sonner-toast][data-type="loading"],
+.dark .blurt-toast[data-type="loading"] {
+  border-left: 8px solid #F0F0F0 !important;
+}
+
+/* Icon Alignment & Spacing */
+[data-sonner-toast] [data-icon],
+.blurt-toast-icon {
+  display: flex !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+  align-self: flex-start !important;
+}
+
+/* Content Container */
+[data-sonner-toast] [data-content],
+.blurt-toast-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  padding-right: 22px !important;
+  overflow: hidden !important;
+}
+
+/* Title Styling */
+[data-sonner-toast] [data-title],
+.blurt-toast-title {
+  font-weight: 900 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  color: #121212 !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.dark [data-sonner-toast] [data-title],
+.dark .blurt-toast-title {
+  color: #F0F0F0 !important;
+}
+
+/* Description Styling */
+[data-sonner-toast] [data-description],
+.blurt-toast-description {
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.2rem !important;
+  color: #404040 !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  margin-top: 2px !important;
+}
+
+.dark [data-sonner-toast] [data-description],
+.dark .blurt-toast-description {
+  color: #A0A0A0 !important;
+}
+
+/* Action Button */
+[data-sonner-toast] [data-button],
+.blurt-toast-action {
+  border-radius: 0px !important;
+  border: 2px solid #121212 !important;
+  background: #D02020 !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 6px 14px !important;
+  box-shadow: 2px 2px 0px 0px #121212 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  outline: none !important;
+  margin-top: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+[data-sonner-toast] [data-button]:hover,
+.blurt-toast-action:hover {
+  background: #B01818 !important;
+}
+
+[data-sonner-toast] [data-button]:active,
+.blurt-toast-action:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px 0px #121212 !important;
+}
+
+.dark [data-sonner-toast] [data-button],
+.dark .blurt-toast-action {
+  border-color: #F0F0F0 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+}
+
+/* Cancel Button */
+[data-sonner-toast] [data-cancel],
+.blurt-toast-cancel {
+  border-radius: 0px !important;
+  border: 2px solid #121212 !important;
+  background: #E0E0E0 !important;
+  color: #121212 !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 6px 14px !important;
+  box-shadow: 2px 2px 0px 0px #121212 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  outline: none !important;
+  margin-top: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+[data-sonner-toast] [data-cancel]:hover,
+.blurt-toast-cancel:hover {
+  background: #D0D0D0 !important;
+}
+
+[data-sonner-toast] [data-cancel]:active,
+.blurt-toast-cancel:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px 0px #121212 !important;
+}
+
+.dark [data-sonner-toast] [data-cancel],
+.dark .blurt-toast-cancel {
+  background: #2A2A2A !important;
+  color: #F0F0F0 !important;
+  border-color: #F0F0F0 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+}
+
+/* Close Button */
+[data-sonner-toast] [data-close-button],
+.blurt-toast-close {
+  position: absolute !important;
+  border-radius: 0px !important;
+  border: 2px solid #121212 !important;
+  background: #FFFFFF !important;
+  color: #121212 !important;
+  box-shadow: 2px 2px 0px 0px #121212 !important;
+  cursor: pointer !important;
+  width: 22px !important;
+  height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+  top: 10px !important;
+  right: 10px !important;
+  left: auto !important;
+  transform: none !important;
+  opacity: 0.9 !important;
+  z-index: 10 !important;
+}
+
+[data-sonner-toast] [data-close-button]:hover,
+.blurt-toast-close:hover {
+  background: #E0E0E0 !important;
+  opacity: 1 !important;
+}
+
+[data-sonner-toast] [data-close-button]:active,
+.blurt-toast-close:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px 0px #121212 !important;
+}
+
+.dark [data-sonner-toast] [data-close-button],
+.dark .blurt-toast-close {
+  background: #1C1C1C !important;
+  color: #F0F0F0 !important;
+  border-color: #F0F0F0 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+}
+
+.dark [data-sonner-toast] [data-close-button]:hover,
+.dark .blurt-toast-close:hover {
+  background: #2A2A2A !important;
+}
+
+
+.dark [data-sonner-toast] [data-close-button],
+.dark .blurt-toast-close {
+  background: #1C1C1C !important;
+  color: #F0F0F0 !important;
+  border-color: #F0F0F0 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+}
+
+.dark [data-sonner-toast] [data-close-button]:hover,
+.dark .blurt-toast-close:hover {
+  background: #2A2A2A !important;
 }
