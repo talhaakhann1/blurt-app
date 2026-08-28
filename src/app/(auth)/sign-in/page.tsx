@@ -36,12 +36,11 @@ export default function Page() {
 
 
             if (result?.error) {
-                if (result.error === 'CredentialsSignin') {
-                    toast.error('Login Failed || Incorrect username or password')
-                }
+                toast.error(`Login Failed || ${result.error}`)
+            } else {
+                toast.success("Login Successfull")
             }
 
-            toast("Login Successfull")
 
             if (result?.url) {
                 router.replace('/dashboard')
@@ -60,7 +59,7 @@ export default function Page() {
         }
     }
     return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F0F0F0] p-4 sm:p-6">
+        <div className="min-h-screen flex items-center justify-center bg-[#F0F0F0] p-4 sm:p-6">
             <div className="w-full max-w-md border-4 border-black bg-white p-6 sm:p-10 shadow-[8px_8px_0px_0px_#121212] relative overflow-hidden">
                 <div className="absolute top-0 left-0 h-3 w-full bg-[#1040C0]" />
 
@@ -86,7 +85,7 @@ export default function Page() {
                             render={({ field, fieldState }) => (
                                 <Field data-invalid={fieldState.invalid}>
                                     <FieldLabel htmlFor="signin-identifier">
-                                        Username or Email
+                                        Email
                                     </FieldLabel>
                                     <Input
                                         {...field}
@@ -125,8 +124,8 @@ export default function Page() {
                         />
                     </FieldGroup>
 
-                    <Button 
-                        type="submit" 
+                    <Button
+                        type="submit"
                         variant="secondary"
                         size="lg"
                         className="w-full font-black"

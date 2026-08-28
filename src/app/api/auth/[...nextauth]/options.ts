@@ -24,7 +24,7 @@ export const authOption: NextAuthOptions = {
           ],
         });
         if (!user) {
-          throw new Error("User does not exist");
+          throw new Error("Email does not exist");
         }
         // if (!user.isVerified) {
         //   throw new Error("Verify the account before login");
