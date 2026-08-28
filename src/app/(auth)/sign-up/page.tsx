@@ -48,7 +48,7 @@ function Page() {
         const response = await axios.get(`/api/check-username-unique?username=${debouncedUsername}`)
         let message = response.data.message
         setUsernameMessage(message)
-
+ 
       } catch (error) {
         const AxiosError = error as AxiosError<ApiResponse>
         setUsernameMessage(AxiosError.response?.data.message || "Error checking username")
@@ -80,12 +80,13 @@ function Page() {
 
    const isAvailable = usernameMessage === "Username is Available" || usernameMessage === "Username is unique";
 
+   const hasCheckedUsername = usernameMessage !== "";
+
   return (
      <div className="min-h-screen flex items-center justify-center bg-[#F0F0F0] p-4 sm:p-6">
       <div className="w-full max-w-md border-4 border-black bg-white p-6 sm:p-10 shadow-[8px_8px_0px_0px_#121212] relative overflow-hidden">
         <div className="absolute top-0 left-0 h-3 w-full bg-[#D02020]" />
 
-        {/* Bauhaus Header Badge */}
         <div className="text-center mb-8 pt-2">
           <div className="inline-flex items-center gap-1.5 border-2 border-black bg-[#F0C020] px-3 py-1 font-bold uppercase tracking-widest text-xs shadow-[2px_2px_0px_0px_#121212] mb-4">
             <span className="size-2 rounded-full bg-[#1040C0] inline-block border border-black" />
@@ -196,7 +197,7 @@ function Page() {
             variant="default"
             size="lg"
             className="w-full font-black"
-            disabled={isSubmitting}
+            disabled={isSubmitting || (hasCheckedUsername && !isAvailable)}
           >
             {isSubmitting ? (
               <>
